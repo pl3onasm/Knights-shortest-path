@@ -22,14 +22,21 @@ def visualize(start,goal,path,obstacles):
     board[a+shiftx][b+shifty] = '#'
   
   if path:
+    n,lim = len(path), abs(maxx-minx)
+    p, newline, lim = '[', 0, 100 if lim > 60 else 50
+    for i,(h,k) in enumerate(path):
+      p += (tup :=  f'({h},{k})')
+      newline = 0 if newline >= lim else newline+len(tup)
+      if i<n-1: p += ',' if not i or newline else ',\n'
+    p += ']\n'
     output = (f'\nThe knight\'s shortest path consists of '
-              + f'{len(path)-1} steps:\n{path}\n') 
+              + f'{len(path)-1} steps:\n{p}\n') 
     for i,(x,y) in enumerate(path):
       board[x+shiftx][y+shifty] = str((i)%10)
   else: 
-    output = "\nThere does not exist any path for the given problem.\n"
+    output = "There does not exist any path for the given problem.\n"
   
-  output += '\nGraphical representation:\n\n'
+  output += 'Graphical representation:\n\n'
   board[start[0]+shiftx][start[1]+shifty] = 'S'
   board[goal[0]+shiftx][goal[1]+shifty] = 'D'
   for i in range(minx,maxx):

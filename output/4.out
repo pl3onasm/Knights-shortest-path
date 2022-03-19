@@ -4,7 +4,7 @@
 Execution time: 0.001 s
 
 The knight's shortest path consists of 8 steps:
-[(3, 2), (1, 1), (2, 3), (3, 5), (4, 7), (5, 9), (6, 11), (5, 13), (6, 15)]
+[(3,2),(1,1),(2,3),(3,5),(4,7),(5,9),(6,11),(5,13),(6,15)]
 
 Graphical representation:
 
