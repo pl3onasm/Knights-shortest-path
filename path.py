@@ -42,10 +42,10 @@ def visualize(start,goal,path,obstacles):
 def main(inFile):
   with open(inFile, 'r') as f:
     ls = f.readlines()
-    start = tuple(map(int,ls[0].strip('()\n').split(',')))
-    goal = tuple(map(int,ls[1].strip('()\n').split(',')))
-    obstacles = [tuple(map(int,char.strip(',)').split(','))) 
-                for char in ls[2].strip('[]\n').split('(')[1:]]
+    start = tuple(map(int,ls[0].strip('() \n').split(',')))
+    goal = tuple(map(int,ls[1].strip('() \n').split(',')))
+    obstacles = [tuple(map(int,char.strip(',) ').split(','))) 
+                for char in ls[2].strip('[] \n').split('(')[1:]]
   
   begin = perf_counter()
   path = shortestPath(start,goal,obstacles)
