@@ -44,7 +44,7 @@ def visualize(start,goal,path,obstacles):
     for j in range(miny,maxy):
       output += board[i+shiftx][j+shifty]
     output += '.\n'
-  return output
+  return output+'\n'
   
 def main(inFile):
   with open(inFile, 'r') as f:
