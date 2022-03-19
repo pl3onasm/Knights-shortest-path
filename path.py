@@ -23,7 +23,7 @@ def visualize(start,goal,path,obstacles):
   
   if path:
     n,lim = len(path), abs(maxx-minx)
-    p, newline, lim = '[', 0, 100 if lim > 60 else 50
+    p, newline, lim = '[', 0, 100 if lim > 75 else 50
     for i,(h,k) in enumerate(path):
       p += (tup :=  f'({h},{k})')
       newline = 0 if newline >= lim else newline+len(tup)
