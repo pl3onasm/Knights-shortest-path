@@ -1,4 +1,4 @@
-# ♞ A knights shortest path
+# ♞ A knight's shortest path
 
 This program computes a shortest path for a knight on an infinite chessboard on which there may be other chess pieces (obstacles) or not. The program outputs the number of steps the knight needs to take and a list of coordinates indicating the successive jumps. The output finishes with a graphical representation of the knight's path.  
 
