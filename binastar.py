@@ -1,3 +1,13 @@
+#  ┌────────────────────────────────────────────────────────────┐
+#  │  File name: binastar.py                                    │
+#  │  Author: David De Potter, pl3onasm@gmail.com               │
+#  │  License: see the license file in this repository          │
+#  │  Description: implementation of a two-way A* search that   │
+#  │  expands from both the starting point and the destination, │
+#  |  guided by a heuristic estimating the remaining distance   |
+#  |  to the starting point of the opposite path                |
+#  └────────────────────────────────────────────────────────────┘
+
 from heapq import heappush, heappop
 from math import sqrt,inf
 from collections import defaultdict
@@ -35,3 +45,4 @@ def shortestPath(start, goal, obstacles):
           parents[i][new] = curr 
           heappush(path,(cost+1+h(*new,*dest[i]),cost+1,new)) 
 
+   
