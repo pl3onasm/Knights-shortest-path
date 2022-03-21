@@ -22,8 +22,8 @@ def visualize(start,goal,path,obstacles):
       minx,miny = min(minx,a),min(miny,b)
       maxx,maxy = max(maxx,a),max(maxy,b)
   minx -= 1; miny -= 1; maxx += 2; maxy += 2
-  shiftx = abs(minx) if minx < 0 else 0
-  shifty = abs(miny) if miny < 0 else 0
+  shiftx = abs(minx) if minx <= 0 else -minx
+  shifty = abs(miny) if miny <= 0 else -miny
   board = [['.' for _ in range(maxy+1+shifty)] for _ in range(maxx+1+shiftx)]
   for a,b in obstacles: 
     board[a+shiftx][b+shifty] = '#'
@@ -41,15 +41,15 @@ def visualize(start,goal,path,obstacles):
     for i,(x,y) in enumerate(path):
       board[x+shiftx][y+shifty] = str((i)%10)
   else: 
-    output = "There does not exist any path for the given problem.\n"
+    output = "\nThere does not exist any path for the given problem.\n\n"
   
   output += 'Graphical representation:\n\n'
   board[start[0]+shiftx][start[1]+shifty] = 'S'
   board[goal[0]+shiftx][goal[1]+shifty] = 'D'
-  for i in range(minx,maxx):
+  for i in range(len(board)-1):
     output += '   .'
-    for j in range(miny,maxy):
-      output += board[i+shiftx][j+shifty]
+    for j in range(len(board[0])-1):
+      output += board[i][j]
     output += '.\n'
   return output+'\n'
   
