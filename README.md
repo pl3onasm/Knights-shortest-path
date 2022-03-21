@@ -13,7 +13,7 @@ python3 path.py input/1.in
 ```
 This command will compute a solution for the problem given in 1.in from the input directory.
 The output will then be written to a .out file that will be stored in /output.
-Input files should contain the starting point on the first line, the destination on the second one, and a list containing tuples denoting all the coordinates of the other chess pieces on the board. If there are no other chess pieces, then the third line should be left empty.
+Input files should contain the starting point on the first line, and the destination on the second one. On the third line there should be a list containing tuples denoting all the coordinates of the other chess pieces on the board. If there are no other chess pieces, the third line should be left empty.
 
 
 ## ♘ Graphical visualization
