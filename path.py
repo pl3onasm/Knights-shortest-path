@@ -59,8 +59,10 @@ def main(inFile):
   
   start = tuple(map(int,ls[0].strip('() \n').split(',')))
   goal = tuple(map(int,ls[1].strip('() \n').split(',')))
-  obstacles = {tuple(map(int,char.strip(',) ').split(','))) 
-              for char in ls[2].strip('[] \n').split('(')[1:]}
+  if len(ls) > 2 and ls[2].strip(' \n[]') != '': 
+    obstacles = {tuple(map(int,char.strip(',) ').split(','))) 
+    for char in ls[2].strip('[] \n').split('(')[1:]}
+  else: obstacles = set()
   begin = perf_counter()
   path = shortestPath(start,goal,obstacles)
   end = perf_counter()
