@@ -1,22 +1,20 @@
 from time import perf_counter
 from binastar import shortestPath
 import os,sys
+from math import inf
 
 def visualize(start,goal,path,obstacles):
-  shiftx = shifty = 0
-  minx,miny = min(start[0],goal[0]), min(start[1],goal[1])
-  maxx,maxy = max(start[0],goal[0]), max(start[1],goal[1])
-  for a,b in obstacles:
+  minx = miny = inf; maxx = maxy = -inf
+  for a,b in obstacles | {start,goal} :
     minx,miny = min(minx,a),min(miny,b)
     maxx,maxy = max(maxx,a),max(maxy,b)
   if path:
     for a,b in path:
       minx,miny = min(minx,a),min(miny,b)
       maxx,maxy = max(maxx,a),max(maxy,b)
-  minx -= 1; miny -= 1; maxx += 2; maxy += 2; 
-  if minx <0: shiftx = abs(minx)
-  if miny <0: shifty = abs(miny)
-
+  minx -= 1; miny -= 1; maxx += 2; maxy += 2
+  shiftx = abs(minx) if minx < 0 else 0
+  shifty = abs(miny) if miny < 0 else 0
   board = [['.' for _ in range(maxy+1+shifty)] for _ in range(maxx+1+shiftx)]
   for a,b in obstacles: 
     board[a+shiftx][b+shifty] = '#'
@@ -51,8 +49,8 @@ def main(inFile):
     ls = f.readlines()
     start = tuple(map(int,ls[0].strip('() \n').split(',')))
     goal = tuple(map(int,ls[1].strip('() \n').split(',')))
-    obstacles = [tuple(map(int,char.strip(',) ').split(','))) 
-                for char in ls[2].strip('[] \n').split('(')[1:]]
+    obstacles = {tuple(map(int,char.strip(',) ').split(','))) 
+                for char in ls[2].strip('[] \n').split('(')[1:]}
   
   begin = perf_counter()
   path = shortestPath(start,goal,obstacles)
@@ -72,7 +70,3 @@ def main(inFile):
 if __name__ == "__main__":
   main(sys.argv[1])
   
-
-
-
-

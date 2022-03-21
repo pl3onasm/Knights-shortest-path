@@ -1,8 +1,8 @@
 from heapq import heappush, heappop
-from math import sqrt
+from math import sqrt,inf
 from collections import defaultdict
 
-INF=lambda:float('inf')
+INF=lambda:inf
 
 def shortestPath(start, goal, obstacles):
   def getPath(child,parents):
@@ -20,7 +20,7 @@ def shortestPath(start, goal, obstacles):
   costs[0][start] = costs[1][goal] = 0; d = h(*start,*goal)
   paths = ([(d,0,start)],[(d,0,goal)])
   parents = ({start:None},{goal:None})
-  dest, obstacles, i = (start,goal), set(obstacles), 1
+  dest, obstacles, i = (start,goal), obstacles, 1
   while all(p for p in paths):
     for path in paths:
       i = not i  
@@ -34,3 +34,4 @@ def shortestPath(start, goal, obstacles):
           costs[i][new] = cost+1
           parents[i][new] = curr 
           heappush(path,(cost+1+h(*new,*dest[i]),cost+1,new)) 
+
