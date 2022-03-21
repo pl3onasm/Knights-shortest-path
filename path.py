@@ -47,7 +47,7 @@ def visualize(start,goal,path,obstacles):
   board[start[0]+shiftx][start[1]+shifty] = 'S'
   board[goal[0]+shiftx][goal[1]+shifty] = 'D'
   for i in range(minx,maxx):
-    output += '.'
+    output += '   .'
     for j in range(miny,maxy):
       output += board[i+shiftx][j+shifty]
     output += '.\n'
