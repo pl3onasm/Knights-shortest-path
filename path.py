@@ -22,8 +22,8 @@ def visualize(start,goal,path,obstacles):
       minx,miny = min(minx,a),min(miny,b)
       maxx,maxy = max(maxx,a),max(maxy,b)
   minx -= 1; miny -= 1; maxx += 1; maxy += 1
-  shiftx = abs(minx) if minx <= 0 else -minx
-  shifty = abs(miny) if miny <= 0 else -miny
+  shiftx = abs(minx) if minx < 0 else -minx
+  shifty = abs(miny) if miny < 0 else -miny
   board = [['.' for _ in range(maxy+1+shifty)] for _ in range(maxx+1+shiftx)]
   for a,b in obstacles: 
     board[a+shiftx][b+shifty] = '#'
