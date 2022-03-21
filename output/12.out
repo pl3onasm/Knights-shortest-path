@@ -1,7 +1,7 @@
 
 ====<  Solution to the problem from input/12.in  >====
 
-Execution time: 0.015 s
+Execution time: 0.017 s
 
 The knight's shortest path consists of 29 steps:
 [(0,-20),(-1,-18),(0,-16),(-1,-14),(0,-12),(-1,-10),(0,-8),(1,-6),
