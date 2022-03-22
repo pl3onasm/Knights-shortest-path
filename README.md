@@ -18,4 +18,4 @@ Input files should contain the starting point on the first line, and the destina
 
 ## ♘ Graphical visualization
 
-Since the chessboard is infinite, the graph only represents that part of the board which contains all the relevant problem and solution data, viz. the knight's path and the other chess pieces. The starting point is marked by capital S and the destination by D. The steps to get from S to D are represented by numbers modulo 10. Other chess pieces are represented by a #, whereas dots denote empty squares.
+While the chessboard is infinite, the figure in the output only represents the part of the board that contains all the relevant problem and solution data, viz. the knight's path and the other chess pieces. The starting point is marked by capital S and the destination by D. The steps to get from S to D are represented by numbers modulo 10. Other chess pieces are represented by a #, whereas dots denote empty squares.
